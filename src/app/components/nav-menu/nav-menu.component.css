@@ -1,0 +1,36 @@
+nav {
+    background-color: aquamarine;
+    height: 4rem;
+    display: flex;
+    flex-direction: row;
+}
+
+.nav-item {
+    justify-content: right;
+    height: 100%;
+    display: flex;
+    align-items: center;;
+}
+
+.nav-item:hover {
+    background-color: rgb(6, 237, 160);
+}
+
+a {
+    margin: auto 2rem auto 2rem;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.3rem;
+    text-decoration: none;
+}
+
+a:link {
+    color: rgb(26, 25, 25); /* Set the default color for unvisited links */
+  }
+  
+  a:visited {
+    color: rgb(26, 25, 25); /* Set the same color for visited links */
+  }
+  
+  a:hover {
+    color: rgb(26, 25, 25); /* Change the color on hover */
+  }

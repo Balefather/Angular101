@@ -1,0 +1,2 @@
+C:\Users\balef\source\repos\Angular101\Angular101\obj\Debug\Angular101.esproj.SuggestedBindingRedirects.cache
+C:\Users\balef\source\repos\Angular101\Angular101\obj\Debug\Angular101.esproj.CoreCompileInputs.cache
