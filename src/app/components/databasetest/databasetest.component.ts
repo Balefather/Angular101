@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { OracleService } from '../services/oracle-db.service';
+/* import { OracleService } from '../services/oracle-db.service'; */
 
 @Component({
   selector: 'app-databasetest',
@@ -11,11 +11,11 @@ export class DatabasetestComponent implements OnInit{
 
   data?: any[];
 
-  constructor(private oracleService: OracleService) {}
+  constructor(/* private oracleService: OracleService */) {}
 
   async ngOnInit() {
-    const result = await this.oracleService.executeQuery('SELECT * FROM tblParts');
+/*     const result = await this.oracleService.executeQuery('SELECT * FROM tblParts');
 
-    this.data = result.rows;
+    this.data = result.rows; */
   }
 }

@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+/* import { Injectable } from '@angular/core';
 import oracledb from 'oracledb';
 
 @Injectable({
@@ -50,4 +50,4 @@ export class OracleService {
       console.error('Error disconnecting from Oracle database', error);
     }
   }
-}
+} */

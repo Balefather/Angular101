@@ -14,7 +14,7 @@ import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './services/in-memory-data.service';
 import { HeroSearchComponent } from './components/hero-search/hero-search.component';
 import { NavMenuComponent } from './components/nav-menu/nav-menu.component';
-import { DatabasetestComponent } from './databasetest/databasetest.component';
+import { DatabasetestComponent } from './components/databasetest/databasetest.component';
 
 
 @NgModule({
