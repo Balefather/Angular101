@@ -1,0 +1,47 @@
+<table>
+  <tr>
+    <th>OK</th>
+    <th>Q201???</th>
+    <th>PVEN-007???</th>
+    <th>Justering</th>
+    <th>Total</th>
+  </tr>
+  <tr *ngFor="let part of selectedParts">
+    <td>
+      <input type="checkbox">
+    </td>
+    <td>{{part.partName}}</td>
+    <td>
+      <input type="number" [(ngModel)]="noToChange" (input)="calculateTotal()"/>
+    </td>
+    <td>
+      <input type="number" [(ngModel)]="adjustment" (input)="calculateTotal()"/>
+    </td>
+    <td>
+      <input disabled="true" [(ngModel)]="totalChanged"/>
+    </td>
+  </tr>
+</table>
+
+
+<div id="search-component">
+  <label for="search-box">Brugte reservedele</label>
+  <input #searchBox id="search-box" (input)="search(searchBox.value)" [(ngModel)]="searchValue"/>
+  <ul class="search-result">
+    <li *ngFor="let part of searchResultParts$ | async" (click)="addToSelection(part)">
+      <a >
+        {{part.partName}}
+      </a>
+    </li>
+  </ul>
+</div>
+
+<form #myForm="ngForm" (ngSubmit)="submitForm(myForm)">
+  
+  <div>
+    <label for="message">Beskrivelse:</label>
+    <textarea id="message" name="message" [(ngModel)]="formData.message" required></textarea>
+  </div>
+  <button type="submit" [disabled]="myForm.invalid">Submit</button>
+</form>
+  

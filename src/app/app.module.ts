@@ -3,35 +3,33 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import { HeroesComponent } from './components/heroes/heroes.component';
+import { PartsComponent } from './components/parts/parts.component';
 import { FormsModule } from '@angular/forms';
-import { HeroDetailComponent } from './components/hero-detail/hero-detail.component';
+import { PartDetailComponent } from './components/part-detail/part-detail.component';
 import { MessagesComponent } from './components/messages/messages.component';
 import { AppRoutingModule } from './app-routing.module';
 import { DashboardComponent } from './components/dashboard/dashboard.component'; // <-- NgModel lives here
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 
-import { InMemoryDataService } from './services/in-memory-data.service';
+/* import { InMemoryDataService } from './services/in-memory-data.service'; */
 import { HeroSearchComponent } from './components/hero-search/hero-search.component';
 import { NavMenuComponent } from './components/nav-menu/nav-menu.component';
-import { DatabasetestComponent } from './components/databasetest/databasetest.component';
+import { ServiceChecklistComponent } from './components/service-checklist/service-checklist.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeroesComponent,
-    HeroDetailComponent,
+    PartsComponent,
+    PartDetailComponent,
     MessagesComponent,
     DashboardComponent,
     HeroSearchComponent,
     NavMenuComponent,
-    DatabasetestComponent
+    ServiceChecklistComponent
   ],
   imports: [
-    BrowserModule, FormsModule, HttpClientModule, AppRoutingModule, HttpClientInMemoryWebApiModule.forRoot(
-      InMemoryDataService, { dataEncapsulation: false }
-    )
+    BrowserModule, FormsModule, HttpClientModule, AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
