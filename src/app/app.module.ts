@@ -12,9 +12,10 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 
 /* import { InMemoryDataService } from './services/in-memory-data.service'; */
-import { HeroSearchComponent } from './components/hero-search/hero-search.component';
+import { SearchBarComponent } from './components/search-bar/search-bar.component';
 import { NavMenuComponent } from './components/nav-menu/nav-menu.component';
 import { ServiceChecklistComponent } from './components/service-checklist/service-checklist.component';
+import { PartEditorComponent } from './components/part-editor/part-editor.component';
 
 
 @NgModule({
@@ -24,9 +25,10 @@ import { ServiceChecklistComponent } from './components/service-checklist/servic
     PartDetailComponent,
     MessagesComponent,
     DashboardComponent,
-    HeroSearchComponent,
+    SearchBarComponent,
     NavMenuComponent,
-    ServiceChecklistComponent
+    ServiceChecklistComponent,
+    PartEditorComponent
   ],
   imports: [
     BrowserModule, FormsModule, HttpClientModule, AppRoutingModule

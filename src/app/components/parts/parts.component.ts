@@ -16,10 +16,10 @@ export class PartsComponent implements OnInit {
     this.getParts();
   }
 
-  add(partName: string, numberInStock: number, partPrice: number, partID: number): void {
+  add(partName: string, numberInStock: number, partPrice: number): void {
     partName = partName.trim();
     if (!partName) { return; }
-    this.partService.addPart({ partID, partName, numberInStock, partPrice } as Part)
+    this.partService.addPart({ partName, numberInStock, partPrice } as Part)
       .subscribe(hero => {
         this.parts.push(hero);
       });

@@ -1,0 +1,10 @@
+#messages-container {
+    border-right: 2px solid rgb(217, 231, 236);
+    height:100%;
+    padding: 3rem;
+    max-width: 200px;
+}
+
+.message{
+    padding-bottom: 1rem;
+}

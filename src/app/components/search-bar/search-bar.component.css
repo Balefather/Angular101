@@ -8,6 +8,7 @@ label {
     margin-bottom: .5rem;
   
   }
+
   input {
     padding: .5rem;
     width: 100%;
@@ -16,12 +17,46 @@ label {
     display: block;
   }
   
-  input:focus {
-    outline: #336699 auto 1px;
+  @keyframes grow {
+    from {
+      width: 200px;
+    }
+    to {
+      width: 400px;
+    }
   }
   
+  @keyframes shrink {
+    from {
+      width: 400px;
+    }
+    to {
+      width: 200px;
+    }
+  }
+  
+  input:focus {
+    outline: #336699 auto 1px;
+    animation-name: grow;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+  }
+  
+  input:not(:focus) {
+    animation-name: shrink;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+    animation-fill-mode: backwards;
+  }
+  
+  
+  
+  
+
   li {
     list-style-type: none;
+    background-color: white;
   }
   .search-result li a {
     border-bottom: 1px solid gray;

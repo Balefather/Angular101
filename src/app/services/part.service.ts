@@ -9,7 +9,7 @@ import { Part } from '../model/part';
   providedIn: 'root'
 })
 export class PartService {
-  private partsUrl = 'https://shiggy.dk/api/tblParts';  // URL to web api
+  private partsUrl = 'https://www.shiggy.dk/api/Parts';  // URL to web api
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })

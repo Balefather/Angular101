@@ -1,5 +1,16 @@
 /* HeroSearch private styles */
 
+#service-checklist-container{
+  padding: 3rem;
+}
+
+.forms-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
 label {
     display: block;
     font-weight: bold;
@@ -45,3 +56,38 @@ label {
     margin-top: 0;
     padding-left: 0;
   }
+
+  /* Style for the customer and machine headings */
+h1, h2 {
+  font-weight: bold;
+  color: #444;
+  margin-bottom: 10px;
+}
+
+/* Style for the container of the component */
+.header {
+  background-color: #f7f7f7;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+/* Style for the selected customer */
+div[selectedCustomer] {
+  background-color: #ddd;
+}
+
+/* Style for the forms container */
+.forms-container {
+  margin-top: 20px;
+}
+
+
+
+/* Hover effect on the customer and machine headings */
+h1:hover, h2:hover {
+  color: #000;
+  cursor: pointer;
+}
+

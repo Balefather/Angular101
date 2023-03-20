@@ -3,6 +3,7 @@ export class Part {
       public partID: number,
       public partName: string,
       public numberInStock: number,
-      public partPrice: number
+      public partPrice: number,
+      public amountPartMachine: number
     ) {  }
   }

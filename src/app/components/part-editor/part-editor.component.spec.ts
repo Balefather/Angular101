@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { HeroSearchComponent } from './hero-search.component';
+import { PartEditorComponent } from './part-editor.component';
 
-describe('HeroSearchComponent', () => {
-  let component: HeroSearchComponent;
-  let fixture: ComponentFixture<HeroSearchComponent>;
+describe('PartEditorComponent', () => {
+  let component: PartEditorComponent;
+  let fixture: ComponentFixture<PartEditorComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ HeroSearchComponent ]
+      declarations: [ PartEditorComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(HeroSearchComponent);
+    fixture = TestBed.createComponent(PartEditorComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

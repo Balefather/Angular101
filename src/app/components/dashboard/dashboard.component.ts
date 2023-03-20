@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Hero } from '../../hero';
-import { HeroService } from '../../services/hero.service';
+import { Part } from '../../model/part';
+import { PartService } from '../../services/part.service';
 import { MessageService } from '../../services/message.service';
 
 @Component({
@@ -9,20 +9,20 @@ import { MessageService } from '../../services/message.service';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-  heroes: Hero[] = [];
+  parts: Part[] = [];
 
-  constructor(private heroService: HeroService, private messageService: MessageService) { }
+  constructor(private partService: PartService, private messageService: MessageService) { }
 
   ngOnInit(): void {
-    this.getHeroes();
+    this.getParts();
   }
 
-  onHover(heroName: string): void {
-    this.messageService.add(`${heroName}: "Don't touch me!"`);
+  onHover(partName: string): void {
+    this.messageService.add(`${partName}: "Don't touch me!"`);
   }
 
-  getHeroes(): void {
-    this.heroService.getHeroes()
-      .subscribe(heroes => this.heroes = heroes.slice(1, 5));
+  getParts(): void {
+    this.partService.getParts()
+      .subscribe(parts => this.parts = parts.slice(1, 5));
   }
 }

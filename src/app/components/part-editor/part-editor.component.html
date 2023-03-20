@@ -1,0 +1,29 @@
+<div class="form-container sleek-form">
+        <span>Reservedel: {{part.partName}}</span>
+        <div class="amount-container">
+            <table>
+                <tr>
+                    <th>Påkrævet udskift</th>
+                    <th>Justering</th>
+                    <th>Total</th>
+                </tr>
+                <tr>
+                    <td><p>{{part.amountPartMachine}}</p></td>
+                    <td><input type="number" [(ngModel)]="adjustment" (input)="calculateTotal()" /></td>
+                    <td><p>{{totalChanged}}</p></td>
+                </tr>
+            </table>
+        </div>
+        <span><p>Beskrivelse</p></span>
+        <textarea id="message" name="message" [(ngModel)]="message" required></textarea>
+        <span><p>Upload</p></span>
+        <input type="file" (change)="onFileSelect($event)" />
+        <img height="300px" width="300px" margin="20px 0 20px 0" *ngIf="thumbnailSrc" [src]="thumbnailSrc" alt="Thumbnail">
+        <div class="horizontal-container">
+            <span>Godkendt</span>
+            <input type="checkbox" />
+        </div>
+        
+</div>
+
+  

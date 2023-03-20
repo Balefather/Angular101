@@ -1,0 +1,96 @@
+
+  .form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1rem;
+    background-color: #f2f2f2;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.2);
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin: 1rem;
+  }
+
+  td{
+    width:33%;
+    margin: auto;
+    text-align: center;
+  }
+
+  .amount-container{
+    display: flex;
+    flex-direction: row;
+  }
+
+  .form-container form {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1rem;
+    background-color: #f2f2f2;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.2);
+  }
+
+  span {
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+  
+  input[type="number"] {
+    width: auto;
+    max-width: 100%;
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 0.25rem;
+    background-color: #e6e6e6;
+    text-align: center;
+    color: #333;
+  }
+  
+  input[type="number"]:focus {
+    outline: none;
+    box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.2);
+  }
+  
+  input[type="checkbox"] {
+    transform: scale(1.5);
+    margin-left: 1rem;
+  }
+
+  textarea {
+
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 0.25rem;
+    background-color: #e6e6e6;
+    resize: none;
+    color: #333;
+  }
+  
+  textarea:focus {
+    outline: none;
+    box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.2);
+  }
+  
+  button {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 0.25rem;
+    background-color: #333;
+    color: #fff;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background-color: #555;
+  }

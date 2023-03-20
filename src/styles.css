@@ -14,13 +14,22 @@ h2, h3 {
 html, body {
   margin: 0;
   height: 100%;
-  overflow: hidden;
+
 }
 
+.horizontal-container{
+  display: flex;
+  flex-direction: row;
+}
 
 body, input[type="text"], button {
   color: #333;
   font-family: Cambria, Georgia, serif;
+}
+
+.container{
+  padding: 3rem;
+  width:100%;
 }
 
 button {

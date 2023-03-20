@@ -1,10 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Part } from 'src/app/model/part';
+import { Machine } from 'src/app/model/machine';
+import { Customer } from 'src/app/model/customer';
 import { PartService } from 'src/app/services/part.service';
 import { Observable, Subject } from 'rxjs';
 import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
 import { MessageService } from 'src/app/services/message.service';
+import { MachinePartService } from 'src/app/services/machine-part.service';
+import { CustomerService } from 'src/app/services/customer.service';
 
 @Component({
   selector: 'app-service-checklist',
@@ -13,40 +17,42 @@ import { MessageService } from 'src/app/services/message.service';
 })
 export class ServiceChecklistComponent implements OnInit{
   parts: Part[] = [];
+  customers: Customer[] = [];
   selectedParts: Part[] = [];
-  noToChange: number = 2;
-  adjustment: number = 0;
-  totalChanged: number = 0;
+  selectedCustomer: Customer | null;
+ 
+
   searchResultParts$!: Observable<Part[]>;
   private searchTerms = new Subject<string>();
   searchValue:string = '';
 
-  formData = {
-    name: '',
-    email: '',
-    message: ''
-  };
-  constructor(private partService: PartService, private messageService: MessageService){}
+  constructor(private partService: PartService, private messageService: MessageService, private customerService: CustomerService){}
 
-  calculateTotal(): void{
-    this.totalChanged = this.noToChange + this.adjustment;
+  customerSelected(customer: Customer){
+    if(this.selectedCustomer == customer){
+      this.selectedCustomer = null;
+    }
+    else{
+      this.selectedCustomer = customer;
+    }
   }
 
   search(term: string): void {
     this.searchTerms.next(term);
   }
 
-  submitForm(form: NgForm){
+/*   submitForm(form: NgForm){
     console.log(this.formData);
     form.reset();
-  }
+  } */
 
   ngOnInit(): void{
     this.GetParts();
+    this.GetCustomers();
     this.initializeSearchResult();
-    this.calculateTotal();
-
   }
+
+
 
   addToSelection(part: Part): void{
     this.selectedParts.push(part);
@@ -58,6 +64,11 @@ export class ServiceChecklistComponent implements OnInit{
   GetParts(): void {
     this.partService.getParts().subscribe(parts => this.parts = parts);
   }
+
+  GetCustomers(): void {
+    this.customerService.getCustomers().subscribe(customers => this.customers = customers);
+  }
+
 
   initializeSearchResult(): void{
     this.searchResultParts$ = this.searchTerms.pipe(
