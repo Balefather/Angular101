@@ -25,6 +25,7 @@ export class SearchBarComponent implements OnInit, OnDestroy {
     this.searchTerms.next(term);
   }
 
+
   ngOnInit(): void {
     this.parts$ = this.searchTerms.pipe(
       // wait 300ms after each keystroke before considering the term

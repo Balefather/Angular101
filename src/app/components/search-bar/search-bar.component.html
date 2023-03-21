@@ -1,5 +1,5 @@
 <div id="search-component">
-  <input #searchBox id="search-box" (input)="search(searchBox.value)" [(ngModel)]="searchValue"/>
+  <input  #searchBox id="search-box" (input)="search(searchBox.value)" [(ngModel)]="searchValue" />
 
   <ul class="search-result">
     <li *ngFor="let part of parts$ | async">
