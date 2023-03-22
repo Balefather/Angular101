@@ -6,7 +6,6 @@ label {
     font-size: 1.2rem;
     margin-top: 1rem;
     margin-bottom: .5rem;
-  
   }
 
 
@@ -19,25 +18,29 @@ label {
     display: block;
   }
   
+/*   Animations causes the <a> to not be completely clickable. 
+  Probably rewrite the search items sections to make this work */
+
   @keyframes grow {
     from {
       width: 200px;
     }
     to {
-      width: 400px;
+      width: 300px;
     }
   }
   
   @keyframes shrink {
     from {
-      width: 400px;
+      width: 300px;
     }
     to {
       width: 200px;
     }
   }
   
-  input:focus {
+  
+  input  {
     outline: #336699 auto 1px;
     animation-name: grow;
     animation-duration: 0.4s;
@@ -58,21 +61,28 @@ label {
   li {
     list-style-type: none;
     background-color: white;
+    overflow: hidden;
+    display:flex;
+    z-index: auto;
   }
-  .search-result li a {
+
+  .parts-header{
+    background-color: #eee;
+  }
+
+  .search-result li a, .parts-header {
+    display: inline-block;
     border-bottom: 1px solid gray;
     border-left: 1px solid gray;
     border-right: 1px solid gray;
-    display: inline-block;
     width: 100%;
-    max-width: 600px;
     padding: .5rem;
     box-sizing: border-box;
     text-decoration: none;
     color: black;
   }
   
-  .search-result li a:hover {
+  .search-result li a:hover, .search-result li .search-item:hover {
     background-color: #435A60;
     color: white;
   }

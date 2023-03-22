@@ -1,0 +1,18 @@
+<div class="container">
+    <div *ngIf="machine">
+  
+      <h2>{{machine.machineName | uppercase}} Details</h2>
+      <div><span>id: </span>{{machine.machineID}}</div>
+      <div>
+        <label for="part-name">Part name: </label>
+        <input id="part-name" [(ngModel)]="machine.machineName" placeholder="name">
+      </div>
+      <h3 *ngIf="!machine.parts" style="color:red">No parts found on this machine!!</h3>
+      <app-parts-dashboard  [parts]="machine.parts"></app-parts-dashboard>
+    </div>
+      
+    <button type="button" (click)="save()">save</button>
+    <button type="button" (click)="goBack()">go back</button>
+  </div>
+  
+  

@@ -7,7 +7,7 @@ import { PartService } from 'src/app/services/part.service';
 import { Observable, Subject } from 'rxjs';
 import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
 import { MessageService } from 'src/app/services/message.service';
-import { MachinePartService } from 'src/app/services/machine-part.service';
+import { MachineService } from 'src/app/services/machine.service';
 import { CustomerService } from 'src/app/services/customer.service';
 
 @Component({

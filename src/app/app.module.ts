@@ -16,6 +16,8 @@ import { SearchBarComponent } from './components/search-bar/search-bar.component
 import { NavMenuComponent } from './components/nav-menu/nav-menu.component';
 import { ServiceChecklistComponent } from './components/service-checklist/service-checklist.component';
 import { PartEditorComponent } from './components/part-editor/part-editor.component';
+import { MachineDetailComponent } from './components/machine-detail/machine-detail.component';
+import { PartsDashboardComponent } from './components/parts-dashboard/parts-dashboard.component';
 
 
 @NgModule({
@@ -28,7 +30,9 @@ import { PartEditorComponent } from './components/part-editor/part-editor.compon
     SearchBarComponent,
     NavMenuComponent,
     ServiceChecklistComponent,
-    PartEditorComponent
+    PartEditorComponent,
+    MachineDetailComponent,
+    PartsDashboardComponent
   ],
   imports: [
     BrowserModule, FormsModule, HttpClientModule, AppRoutingModule

@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { Part } from '../../model/part';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
+import { Observable } from 'rxjs';
 
 import { PartService } from '../../services/part.service';
 @Component({
@@ -19,7 +20,11 @@ export class PartDetailComponent {
   ) { }
 
   ngOnInit(): void {
-    this.getPart();
+    this.route.paramMap.subscribe(params => {
+      const partID = Number(params.get('partID'));
+      this.getPart();
+    });
+
   }
 
   goBack(): void {
@@ -32,9 +37,6 @@ export class PartDetailComponent {
         .subscribe(() => this.goBack());
     }
   }
-
-  
-  
 
   getPart(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));

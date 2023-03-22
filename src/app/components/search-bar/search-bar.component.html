@@ -2,10 +2,43 @@
   <input  #searchBox id="search-box" (input)="search(searchBox.value)" [(ngModel)]="searchValue" />
 
   <ul class="search-result">
+    <li *ngIf="(customers$ | async)?.length">
+      <div class="parts-header">
+        <h4>Kunder</h4>
+      </div>
+    </li>
+    <li *ngFor="let customer of customers$ | async">
+      <div class="search-item" style="width: 100%">
+        <a routerLink="/detail/{{customer.customerID}}">
+          {{customer.customerName}}
+        </a>
+      </div>
+    </li>
+
+      <li *ngIf="(machines$ | async)?.length">
+        <div class="parts-header">
+          <h4>Maskiner</h4>
+        </div>
+      </li>
+      <li *ngFor="let machine of machines$ | async">
+        <div class="search-item" style="width: 100%">
+          <a routerLink="/machine-detail/{{machine.machineID}}">
+            {{machine.machineName}}
+          </a>
+        </div>
+      </li>
+
+    <li *ngIf="(parts$ | async)?.length">
+      <div class="parts-header">
+        <h4>Reservedele</h4>
+      </div>
+    </li>
     <li *ngFor="let part of parts$ | async">
-      <a routerLink="/detail/{{part.partID}}">
-        {{part.partName}}
-      </a>
+      <div class="search-item" style="width: 100%">
+        <a routerLink="/part-detail/{{part.partID}}">
+          {{part.partName}}
+        </a>
+      </div>
     </li>
   </ul>
 </div>

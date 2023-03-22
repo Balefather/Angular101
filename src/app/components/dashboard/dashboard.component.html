@@ -3,7 +3,7 @@
   <div class="parts-menu">
     <a *ngIf="parts == null">Loading...</a>
     <a *ngFor="let part of parts"
-        routerLink="/detail/{{part.partID}}" 
+        routerLink="/part-detail/{{part.partID}}" 
         (mouseenter)="onHover(part.partName)">
         {{part.partName}}
     </a>
