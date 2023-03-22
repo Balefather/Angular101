@@ -10,7 +10,18 @@
       <h3 *ngIf="!machine.parts" style="color:red">No parts found on this machine!!</h3>
       <app-parts-dashboard  [parts]="machine.parts"></app-parts-dashboard>
     </div>
-      
+    <button type="button" (click)="updateMode()">Juster reservedele</button>
+    <div *ngIf="updateParts">
+      <h3>Tilføj reservedele</h3>
+      <ul>
+        <li *ngFor="let part of partsToAdd">{{part.partName}}<p (click)="addPartToMachine(part)">+</p></li>
+      </ul>
+      <h3>Fjern reservedele</h3>
+      <ul *ngIf="machine">
+        <li *ngFor="let part of machine.parts">{{part.partName}}<p (click)="removePartFromMachine(part)">-</p></li>
+      </ul>
+    </div>
+
     <button type="button" (click)="save()">save</button>
     <button type="button" (click)="goBack()">go back</button>
   </div>

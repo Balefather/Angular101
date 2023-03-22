@@ -1,44 +1,50 @@
 <div id="search-component">
-  <input  #searchBox id="search-box" (input)="search(searchBox.value)" [(ngModel)]="searchValue" />
+  <input #searchBox id="search-box" (input)="search(searchBox.value)" [(ngModel)]="searchValue" />
 
   <ul class="search-result">
-    <li *ngIf="(customers$ | async)?.length">
-      <div class="parts-header">
-        <h4>Kunder</h4>
-      </div>
-    </li>
-    <li *ngFor="let customer of customers$ | async">
-      <div class="search-item" style="width: 100%">
-        <a routerLink="/detail/{{customer.customerID}}">
-          {{customer.customerName}}
-        </a>
-      </div>
-    </li>
+    <ng-container *ngIf="(customers$ | async) as customers">
+      <li *ngIf="customers.length">
+        <div class="parts-header">
+          <h4>Kunder</h4>
+        </div>
+      </li>
+      <li *ngFor="let customer of customers">
+        <div class="search-item" style="width: 100%">
+          <a routerLink="/detail/{{customer.customerID}}">
+            {{customer.customerName}}
+          </a>
+        </div>
+      </li>
+    </ng-container>
 
-      <li *ngIf="(machines$ | async)?.length">
+    <ng-container *ngIf="(machines$ | async) as machines">
+      <li *ngIf="machines.length">
         <div class="parts-header">
           <h4>Maskiner</h4>
         </div>
       </li>
-      <li *ngFor="let machine of machines$ | async">
+      <li *ngFor="let machine of machines">
         <div class="search-item" style="width: 100%">
           <a routerLink="/machine-detail/{{machine.machineID}}">
             {{machine.machineName}}
           </a>
         </div>
       </li>
+    </ng-container>
 
-    <li *ngIf="(parts$ | async)?.length">
-      <div class="parts-header">
-        <h4>Reservedele</h4>
-      </div>
-    </li>
-    <li *ngFor="let part of parts$ | async">
-      <div class="search-item" style="width: 100%">
-        <a routerLink="/part-detail/{{part.partID}}">
-          {{part.partName}}
-        </a>
-      </div>
-    </li>
+    <ng-container *ngIf="(parts$ | async) as parts">
+      <li *ngIf="parts.length">
+        <div class="parts-header">
+          <h4>Reservedele</h4>
+        </div>
+      </li>
+      <li *ngFor="let part of parts">
+        <div class="search-item" style="width: 100%">
+          <a routerLink="/part-detail/{{part.partID}}">
+            {{part.partName}}
+          </a>
+        </div>
+      </li>
+    </ng-container>
   </ul>
 </div>
