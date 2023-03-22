@@ -20,8 +20,8 @@ export class PartsComponent implements OnInit {
     partName = partName.trim();
     if (!partName) { return; }
     this.partService.addPart({ partName, numberInStock, partPrice } as Part)
-      .subscribe(hero => {
-        this.parts.push(hero);
+      .subscribe(part => {
+        this.parts.push(part);
       });
   }
 

@@ -1,0 +1,33 @@
+<!--<h2>{{hero.name | uppercase}} Details</h2>
+<div><span>id: </span>{{hero.id}}</div>
+<div>
+  <label for="name">Hero name: </label>
+  <input id="name" [(ngModel)]="hero.name" placeholder="name">
+</div>-->
+<div class="container">
+    <h2>Reservedele</h2>
+    <ul class="machines">
+      <li *ngFor="let machine of machines">
+        <a routerLink="/machine-detail/{{machine.machineID}}">
+          <span class="badge">{{machine.machineID}}</span> {{machine.machineName}} 
+        </a>
+        <button type="button" class="delete" title="delete machine" (click)="delete(machine)">x</button>
+      </li> 
+    </ul>
+    
+    <div>
+      <label for="new-machine">Part name: </label>
+      <input id="new-machine" #machineName />
+    
+      <!-- (click) passes input value to add() and then clears the input -->
+      <button type="button" class="add-button" (click)="add(machineName.value, 'hej', 99); machineName.value=''">
+        Add part
+      </button>
+    </div>
+    
+  
+  </div>
+  
+  
+  
+  

@@ -18,6 +18,7 @@ import { ServiceChecklistComponent } from './components/service-checklist/servic
 import { PartEditorComponent } from './components/part-editor/part-editor.component';
 import { MachineDetailComponent } from './components/machine-detail/machine-detail.component';
 import { PartsDashboardComponent } from './components/parts-dashboard/parts-dashboard.component';
+import { MachinesComponent } from './components/machines/machines.component';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { PartsDashboardComponent } from './components/parts-dashboard/parts-dash
     ServiceChecklistComponent,
     PartEditorComponent,
     MachineDetailComponent,
-    PartsDashboardComponent
+    PartsDashboardComponent,
+    MachinesComponent
   ],
   imports: [
     BrowserModule, FormsModule, HttpClientModule, AppRoutingModule
