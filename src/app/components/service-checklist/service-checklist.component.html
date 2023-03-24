@@ -5,7 +5,8 @@
     <h1 class="header" (click)="customerSelected(customer)">Kunde: {{customer.customerName}}</h1>
     <div *ngIf="selectedCustomer==customer" >
       <div *ngFor="let machine of selectedCustomer.machines">
-        <h2>Maskine: {{machine.machineName}}</h2>
+        <h2>Maskine: {{machine.machineName}}</h2><br>
+        <h2>Serienummer: {{machine.machineSerialNumber}}</h2>
         <div class="forms-container">
           <app-part-editor *ngFor="let part of machine.parts" [part]="part"></app-part-editor>
         </div>

@@ -4,6 +4,7 @@ export class Machine {
     constructor(
       public machineID: number,
       public machineName: string,
+      public machineSerialNumber: string,
       
       public partsMustChange: string,
       public serviceInterval: number,
