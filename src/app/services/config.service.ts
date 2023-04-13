@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Observable, of, map, switchMap } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { Observable, of, map, switchMap, catchError } from 'rxjs';
 import { MessageService } from './message.service';
 import * as fs from 'fs';
 
@@ -7,11 +8,18 @@ import * as fs from 'fs';
   providedIn: 'root'
 })
 export class ConfigService {
-  private configFilePath = '../assets/appconfig.json';
+  
+/*   private configFilePath = 'C:/Users/balef/source/repos/Angular101/Angular101/src/assets/appconfig.json';
+ */
 
-  constructor(private messageService: MessageService) {
-    var path = require('path');
-    this.configFilePath = path.join(__dirname, 'assets/appconfig.json');
+  private configFilePath = 'assets/appconfig.json';
+
+
+  constructor(private http: HttpClient, private messageService: MessageService) {
+/*     var path = require('path');
+    const __filename = new URL(import.meta.url).pathname;
+const __dirname = path.dirname(__filename);
+    this.configFilePath = path.join(__dirname, 'assets/appconfig.json'); */
   }
 
   testLoadConfig(){
@@ -26,25 +34,29 @@ export class ConfigService {
   }
 
   getConfig(): Observable<any> {
-    try {
-      const config = JSON.parse(fs.readFileSync(this.configFilePath, 'utf-8'));
-      this.messageService.add('config loaded');
-      return of(config);
-    } catch (error) {
-      this.messageService.add(`Failed to load config: ${error}`);
-      return of(null);
-    }
+    return this.http.get(this.configFilePath).pipe(
+      map((config) => {
+        this.messageService.add('config loaded');
+        return config;
+      }),
+      catchError((error) => {
+        this.messageService.add(`Failed to load config: ${error}`);
+        return of(null);
+      })
+    );
   }
 
   updateConfig(config: any): Observable<any> {
-    try {
-      fs.writeFileSync(this.configFilePath, JSON.stringify(config, null, 2));
-      this.messageService.add(`Updated config: ${JSON.stringify(config)}`);
-      return of(config);
-    } catch (error) {
-      this.messageService.add(`Failed to update config: ${error}`);
-      return of(null);
-    }
+    return this.http.post(this.configFilePath, config).pipe(
+      map(() => {
+        this.messageService.add(`Updated config: ${JSON.stringify(config)}`);
+        return config;
+      }),
+      catchError((error) => {
+        this.messageService.add(`Failed to update config: ${error}`);
+        return of(null);
+      })
+    );
   }
 
   updateStyle(setting: string, color: string): Observable<any> {

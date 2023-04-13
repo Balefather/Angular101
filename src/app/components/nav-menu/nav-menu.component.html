@@ -1,4 +1,10 @@
-<nav *ngIf="roles$ | async as roles">
+<!-- <style>
+    .nav {
+        background-color: {{ navbarColor }};
+    }
+</style> -->
+
+<nav *ngIf="roles$ | async as roles" [ngStyle]="{ 'background-color': navbarColor }">
     <div class="nav-item">
         <a routerLink="/dashboard">Dashboard</a>
     </div>
@@ -24,3 +30,4 @@
         </div>
     </div>
 </nav>
+

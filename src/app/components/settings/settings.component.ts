@@ -11,7 +11,7 @@ export class SettingsComponent {
   constructor(private configService: ConfigService) { }
 
   updateColor() {
-    this.configService.updateStyle("nav-bar", this.selectedColor).subscribe();
+    this.configService.updateStyle("navbar", this.selectedColor).subscribe();
   }
   test(){
     this.configService.testLoadConfig();

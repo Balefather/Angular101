@@ -1,5 +1,5 @@
 nav {
-    background-color: aquamarine;
+    /* background-color: #7fffd4; */
     height: 4rem;
     display: flex;
     flex-direction: row;
@@ -36,7 +36,7 @@ a {
 }
 
 a:link {
-    color: rgb(26, 25, 25); /* Set the default color for unvisited links */
+    color: #1a1919; /* Set the default color for unvisited links */
   }
   
   a:visited {
