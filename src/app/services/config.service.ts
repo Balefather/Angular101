@@ -47,7 +47,7 @@ const __dirname = path.dirname(__filename);
   }
 
   updateConfig(config: any): Observable<any> {
-    return this.http.post(this.configFilePath, config).pipe(
+    return this.http.put(this.configFilePath, config).pipe(
       map(() => {
         this.messageService.add(`Updated config: ${JSON.stringify(config)}`);
         return config;
