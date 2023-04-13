@@ -4,7 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { Observable } from 'rxjs';
 
-import { PartService } from '../../services/part.service';
+import { PartService } from '../../services/models/part/part.service';
 @Component({
   selector: 'app-part-detail',
   templateUrl: './part-detail.component.html',

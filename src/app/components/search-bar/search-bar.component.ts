@@ -7,13 +7,13 @@ import {
  } from 'rxjs/operators';
 
 import { Part } from '../../model/part';
-import { PartService } from '../../services/part.service';
+import { PartService } from '../../services/models/part/part.service';
 
 import { Machine } from '../../model/machine';
-import { MachineService } from '../../services/machine.service';
+import { MachineService } from '../../services/models/machine/machine.service';
 
 import { Customer } from '../../model/customer';
-import { CustomerService } from '../../services/customer.service';
+import { CustomerService } from '../../services/models/customer/customer.service';
 
 
 @Component({

@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders} from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
-import { MessageService } from './message.service';
+import { MessageService } from './../../message.service';
 import { Observable, of } from 'rxjs';
-import { Customer } from '../model/customer';
-import { Machine } from '../model/machine';
-import { Part } from '../model/part';
+import { Customer } from '../../../model/customer';
+import { Machine } from '../../../model/machine';
+import { Part } from '../../../model/part';
 
 @Injectable({
   providedIn: 'root'

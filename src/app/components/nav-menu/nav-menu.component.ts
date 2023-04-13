@@ -1,6 +1,6 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { Observable } from 'rxjs';
-import { AuthService } from 'src/app/services/auth.service';
+import { AuthService } from 'src/app/services/auth/auth.service';
 import { ConfigService } from 'src/app/services/config.service';
 
 @Component({
@@ -18,7 +18,7 @@ export class NavMenuComponent {
     this.configService.getConfig().subscribe(config => {
       this.navbarColor = config.styles.navbar;
     });
-    
+
     this.roles$ = this.authService.roles$;
     this.roles$.subscribe(roles => {
       this.changeDetectorRef.detectChanges();

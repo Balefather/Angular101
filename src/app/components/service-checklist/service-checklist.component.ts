@@ -3,12 +3,12 @@ import { NgForm } from '@angular/forms';
 import { Part } from 'src/app/model/part';
 import { Machine } from 'src/app/model/machine';
 import { Customer } from 'src/app/model/customer';
-import { PartService } from 'src/app/services/part.service';
+import { PartService } from 'src/app/services/models/part/part.service';
 import { Observable, Subject } from 'rxjs';
 import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
 import { MessageService } from 'src/app/services/message.service';
-import { MachineService } from 'src/app/services/machine.service';
-import { CustomerService } from 'src/app/services/customer.service';
+import { MachineService } from 'src/app/services/models/machine/machine.service';
+import { CustomerService } from 'src/app/services/models/customer/customer.service';
 
 @Component({
   selector: 'app-service-checklist',

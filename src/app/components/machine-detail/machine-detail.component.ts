@@ -4,8 +4,8 @@ import { Part } from '../../model/part';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { Observable } from 'rxjs';
-import { MachineService } from '../../services/machine.service';
-import { PartService } from '../../services/part.service';
+import { MachineService } from '../../services/models/machine/machine.service';
+import { PartService } from '../../services/models/part/part.service';
 
 @Component({
   selector: 'app-machine-detail',

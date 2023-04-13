@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Part } from '../../model/part'
-import { PartService } from '../../services/part.service';
+import { PartService } from '../../services/models/part/part.service';
 import { MessageService } from '../../services/message.service';
 @Component({
   selector: 'app-parts',

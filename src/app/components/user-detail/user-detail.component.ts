@@ -4,7 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { Observable } from 'rxjs';
 
-import { UserService } from '../../services/user.service';
+import { UserService } from '../../services/models/user/user.service';
 @Component({
   selector: 'app-user-detail',
   templateUrl: './user-detail.component.html',

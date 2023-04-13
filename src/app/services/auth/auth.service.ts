@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { BehaviorSubject, catchError, of, tap } from 'rxjs';
 import { Observable, map } from 'rxjs';
-import { MessageService } from './message.service';
+import { MessageService } from './../message.service';
 import jwt_decode from 'jwt-decode';
 import * as jwtDecode from 'jwt-decode';
 

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Part } from '../../model/part';
-import { PartService } from '../../services/part.service';
+import { PartService } from '../../services/models/part/part.service';
 import { MessageService } from '../../services/message.service';
-import { AuthService } from 'src/app/services/auth.service';
+import { AuthService } from 'src/app/services/auth/auth.service';
 import { Observable } from 'rxjs';
 
 @Component({
