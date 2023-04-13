@@ -1,0 +1,36 @@
+<div class="container">
+  <div *ngIf="user">
+    <h2>{{user.username | uppercase}}</h2>
+    <div><span>id: </span>{{user.userID}}</div>
+    <div class="form-container">
+      <div>
+        <label for="username">Brugernavn: </label>
+        <input id="user-name" [(ngModel)]="user.username" placeholder="Indtast brugernavn">
+      </div>
+      <div>
+        <label for="password">Adgangskode: </label>
+        <input type="password" id="user-name" [(ngModel)]="user.password" placeholder="Indtast adgangskode">
+  
+      </div>
+      <div>
+        <label for="firstname">Fornavn: </label>
+        <input id="firstname" [(ngModel)]="user.firstName" placeholder="Indtast fornavn">    
+      </div>
+      <div>
+        <label for="lastname">Efternavn: </label>
+        <input id="lastname" [(ngModel)]="user.lastName" placeholder="Indtast efternavn">  
+      </div>
+    </div>
+    <h2>Roller</h2>
+    <ul>
+      <li *ngFor="let role of roles">{{role}}<button (click)="removeRoleFromUser(role)">Slet  </button></li>
+    </ul>
+    <h3>Tilføj roller</h3>
+    <ul>
+      <li *ngFor="let role of rolesNotInUser">{{role}}<button (click)="addRoleToUser(role)">+</button></li>
+    </ul>
+  </div>
+  <button type="button" (click)="save()">Opdater</button>
+  <button type="button" (click)="goBack()">tilbage</button>
+</div>
+

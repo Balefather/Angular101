@@ -1,8 +1,9 @@
 <div class="container">
   <div *ngIf="part">
-
     <h2>{{part.partName | uppercase}} Details</h2>
     <div><span>id: </span>{{part.partID}}</div>
+
+    
     <div>
       <label for="part-name">Part name: </label>
       <input id="part-name" [(ngModel)]="part.partName" placeholder="name">

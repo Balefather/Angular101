@@ -4,7 +4,14 @@
 </div>
 <div id="main">
   <app-messages></app-messages>
-  <router-outlet></router-outlet>
-    
+  <div *ngIf="isLoggedIn$ | async">
+    <router-outlet ></router-outlet>
+  </div>
+
+  <div *ngIf="!(isLoggedIn$ | async)" style="margin: auto">
+    <h1>ACCESS DENIED</h1>
+    <br><br>
+    <img src="https://www.onlygfx.com/wp-content/uploads/2017/12/warning-stamp-2.png" width="300px" height="200px">
+  </div>
   <!-- <app-databasetest></app-databasetest> -->
 </div>

@@ -1,5 +1,14 @@
 describe('CRUD Parts', () => {
+  beforeEach(() => {
+    cy.login("admin", "test", "Admin");
+  })
   it('creates a part', () => {
+/*     cy.visit('https://localhost:4200/dashboard')
+    cy.get('.button').click()
+    cy.get('#username-input').type("admin")
+    cy.get('#password-input').type("test")
+    cy.get('.login-button').click()
+    cy.wait(100) */
     cy.visit('https://localhost:4200/dashboard')
 
     cy.get('.nav-item-parts').click()

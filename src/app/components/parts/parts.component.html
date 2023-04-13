@@ -8,13 +8,14 @@
   <h2>Reservedele</h2>
   <ul class="parts">
     <li *ngFor="let part of parts">
-      <a routerLink="/parts-detail/{{part.partID}}">
+      <a routerLink="/part-detail/{{part.partID}}">
         <span class="badge">{{part.partID}}</span> {{part.partName}} 
       </a>
       <button type="button" class="delete" title="delete part" (click)="delete(part)">x</button>
     </li> 
   </ul>
-  
+
+  <h2>Tilføj ny reservedel</h2>
   <div>
     <label for="new-part">Navn: </label>
     <input id="new-part" #partName />

@@ -5,7 +5,7 @@
   <input id="name" [(ngModel)]="hero.name" placeholder="name">
 </div>-->
 <div class="container">
-  <h2>Reservedele</h2>
+  <h2>Maskiner</h2>
   <ul class="machines">
     <li *ngFor="let machine of machines">
       <a routerLink="/machine-detail/{{machine.machineID}}">
@@ -14,7 +14,7 @@
       <button type="button" class="delete" title="delete machine" (click)="delete(machine)">x</button>
     </li> 
   </ul>
-    
+  <h2>Tilføj ny maskine</h2>
   <div>
     <label for="new-machine">Maskin navn: </label>
     <input id="new-machine" #machineName />

@@ -1,0 +1,19 @@
+.popup {
+    position: absolute;
+/*     top: calc(100% + 5px);
+    left: 0; */
+    background-color: white;
+    border: 1px solid black;
+    padding: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    margin: 1rem;
+    margin-left: 1rem;
+    right: 0.0001rem;
+  }
+
+  svg{
+    height: 40px;
+    width: 40px;
+    margin-right: 1rem;
+    padding-left:1rem;
+  }

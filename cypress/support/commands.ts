@@ -35,3 +35,37 @@
 //     }
 //   }
 // }
+
+
+//remember to update index.d.ts with new commands
+
+Cypress.Commands.add('login', (username, password, expectedRole) => {
+    cy.session([username, password], () => {
+        cy.visit('https://localhost:4200/dashboard')
+        cy.get('.button').click()
+        cy.get('#username-input').type(username)
+        cy.get('#password-input').type(password)
+        cy.get('.login-button').click().should(() => {
+            expect(localStorage.getItem('roles')||'').to.eq(expectedRole)
+        })
+        //shouldn't wait here, but currently needed for it to work
+/*         cy.wait(100) */
+        
+    })
+
+/*     cy.getAllLocalStorage().then((result) => {
+        expect(result).to.deep.equal({
+            'https://localhost:4200': {
+                roles: 'admin',
+            },
+        })
+    }) */
+})
+
+//this is probably never needed at all, but there might be a use for it at some point
+Cypress.Commands.add('logout', () => {
+    cy.visit('https://localhost:4200/dashboard')
+    cy.get('.button').click()
+    cy.get('.logout-button').click()
+})
+

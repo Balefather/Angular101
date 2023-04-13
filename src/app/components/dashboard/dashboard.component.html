@@ -1,12 +1,15 @@
 <div class="container">
   <h2>Nogle reservedele</h2>
-  <div class="parts-menu">
+  <div class="parts-menu" *ngIf="isLoggedIn$ | async">
     <a *ngIf="parts == null">Loading...</a>
     <a *ngFor="let part of parts"
         routerLink="/part-detail/{{part.partID}}" 
         (mouseenter)="onHover(part.partName)">
         {{part.partName}}
     </a>
+  </div>
+  <div *ngIf="!(isLoggedIn$ | async)">
+    <p>Please log in to view parts list.</p>
   </div>
 </div>
 <div class="container">

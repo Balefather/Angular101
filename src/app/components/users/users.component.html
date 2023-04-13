@@ -1,0 +1,41 @@
+<!--<h2>{{hero.name | uppercase}} Details</h2>
+<div><span>id: </span>{{hero.id}}</div>
+<div>
+  <label for="name">Hero name: </label>
+  <input id="name" [(ngModel)]="hero.name" placeholder="name">
+</div>-->
+<div class="container">
+  <h2>Brugere</h2>
+  <ul class="users">
+    <li *ngFor="let user of users">
+      <a routerLink="/user-detail/{{user.userID}}">
+        <span class="badge">{{user.userID}}</span> {{user.firstName}} {{user.lastName}} 
+      </a>
+      <button type="button" class="delete" title="delete user" (click)="delete(user)">x</button>
+    </li> 
+  </ul>
+  
+  <div>
+    <label for="new-user-username">Brugernavn: </label>
+    <input id="new-user-username" #username />
+
+    <label for="new-user-password">Adgangskode: </label>
+    <input type="password" id="new-user-password" #password />
+
+    <label for="new-user-firstname">Fornavn: </label>
+    <input id="new-user-firstname" #firstname />
+
+    <label for="new-user-lastname">Efternavn: </label>
+    <input id="new-user-lastname" #lastname />
+  
+    <!-- (click) passes input value to add() and then clears the input -->
+    <button type="button" class="add-button" (click)="add(username.value, password.value, firstname.value, lastname.value); username.value=''; password.value=''; firstname.value=''; lastname.value='';">
+      Add user
+    </button>
+  </div>
+  
+
+</div>
+
+
+

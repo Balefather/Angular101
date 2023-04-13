@@ -12,6 +12,11 @@ nav {
     align-items: center;
 }
 
+.float-right{
+  display:flex;
+  margin-left:auto;
+}
+
 #search-bar {
   display: flex;
   margin-top: 0.8rem;

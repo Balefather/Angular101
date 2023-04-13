@@ -1,15 +1,26 @@
-<nav>
+<nav *ngIf="roles$ | async as roles">
     <div class="nav-item">
         <a routerLink="/dashboard">Dashboard</a>
     </div>
-    <div class="nav-item nav-item-parts">
+    <div *ngIf="roles.includes('Admin')" class="nav-item nav-item-parts">
         <a routerLink="/parts">Reservedele</a>
     </div>
-    <div class="nav-item nav-item-parts">
+    <div *ngIf="roles.includes('Admin')" class="nav-item nav-item-machines">
         <a routerLink="/machines">Maskiner</a>
     </div>
-    <div class="nav-item nav-item-services">
+    <div *ngIf="roles.includes('Light User')" class="nav-item nav-item-services">
         <a routerLink="/service-checklist">Registrer service</a>
     </div>
-    <app-search-bar id="search-bar"></app-search-bar>
+    <div *ngIf="roles.includes('Superadministrator')" class="nav-item nav-item-users">
+        <a routerLink="/users">Brugere</a>
+    </div>
+    <div class="float-right">
+        <app-search-bar id="search-bar" *ngIf="roles.includes('Superadministrator') || roles.includes('Admin') || roles.includes('Light User')" ></app-search-bar>
+        <div *ngIf="roles.includes('Admin')" class="nav-item nav-item-settings">
+            <a routerLink="/settings">Settings icon</a>
+        </div>
+        <div class="nav-item" id="user-profile-container">
+            <app-user-profile></app-user-profile>
+        </div>
+    </div>
 </nav>

@@ -1,11 +1,13 @@
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { PartsComponent } from './components/parts/parts.component';
+import { UsersComponent } from './components/users/users.component';
 import { FormsModule } from '@angular/forms';
 import { PartDetailComponent } from './components/part-detail/part-detail.component';
+import { UserDetailComponent } from './components/user-detail/user-detail.component';
 import { MessagesComponent } from './components/messages/messages.component';
 import { AppRoutingModule } from './app-routing.module';
 import { DashboardComponent } from './components/dashboard/dashboard.component'; // <-- NgModel lives here
@@ -19,12 +21,17 @@ import { PartEditorComponent } from './components/part-editor/part-editor.compon
 import { MachineDetailComponent } from './components/machine-detail/machine-detail.component';
 import { PartsDashboardComponent } from './components/parts-dashboard/parts-dashboard.component';
 import { MachinesComponent } from './components/machines/machines.component';
+import { JwtInterceptor } from './services/jwt-interceptor';
+import { UserProfileComponent } from './components/user-profile/user-profile.component';
+import { SettingsComponent } from './components/settings/settings.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     PartsComponent,
+    UsersComponent,
+    UserDetailComponent,
     PartDetailComponent,
     MessagesComponent,
     DashboardComponent,
@@ -34,12 +41,16 @@ import { MachinesComponent } from './components/machines/machines.component';
     PartEditorComponent,
     MachineDetailComponent,
     PartsDashboardComponent,
-    MachinesComponent
+    MachinesComponent,
+    UserProfileComponent,
+    SettingsComponent
   ],
   imports: [
     BrowserModule, FormsModule, HttpClientModule, AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 
