@@ -11,7 +11,7 @@ import { Part } from '../../../model/part';
   providedIn: 'root'
 })
 export class CustomerService {
-  private customersUrl = 'https://www.shiggy.dk/api/CustomersMachinesParts/Customers';  // URL to web api
+  private customersUrl = 'https://www.shiggy.dk/api/Customers/SortedByServiceDate';  // URL to web api
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })

@@ -9,7 +9,7 @@ import { Machine } from '../../../model/machine';
   providedIn: 'root'
 })
 export class MachineService {
-  private machineUrl = 'https://www.shiggy.dk/api/MachineParts';  // URL to web api
+  private machineUrl = 'https://www.shiggy.dk/api/Machines';  // URL to web api
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })

@@ -2,38 +2,19 @@
   <p *ngIf="customers.length === 0">Loading... No customers found... Oh no....</p>
   <div *ngFor="let customer of customers" >
     
-    <h1 class="header" (click)="customerSelected(customer)">Kunde: {{customer.customerName}}</h1>
+    <h1 class="header" (click)="customerSelected(customer)">Kunde: {{customer.customerName}} - Næste service: {{ GetNextServiceFromCustomer(customer) | date: 'dd/MM/yyyy' }}</h1>
     <div *ngIf="selectedCustomer==customer" >
       <div *ngFor="let machine of selectedCustomer.machines">
-        <h2>Maskine: {{machine.machineName}}</h2><br>
-        <h2>Serienummer: {{machine.machineSerialNumber}}</h2>
+        <h2>Maskine: {{machine.machineName}} {{machine.machineSerialNumber}} - Næste Service: {{machine.nextService | date: 'dd/MM/yyyy' }}</h2>
+        <button>Opret service</button>
         <div class="forms-container">
-          <app-part-editor *ngFor="let part of machine.parts" [part]="part"></app-part-editor>
+          <!-- <app-part-editor *ngFor="let part of machine.parts" [part]="part"></app-part-editor> -->
         </div>
       </div>
     </div>
   </div>
-  
-  
-  
-  
-  <div id="search-component">
-    <label for="search-box">Brugte reservedele</label>
-    <input #searchBox id="search-box" (input)="search(searchBox.value)" [(ngModel)]="searchValue"/>
-    <ul class="search-result">
-      <li *ngFor="let part of searchResultParts$ | async" (click)="addToSelection(part)">
-        <a >
-          {{part.partName}}
-        </a>
-      </li>
-    </ul>
-  </div>
-  
-  <!-- <form #myForm="ngForm" (ngSubmit)="submitForm(myForm)">
-    
-  
-    <button type="submit" [disabled]="myForm.invalid">Submit</button>
-  </form> -->
 </div>
+
+<app-services></app-services>
 
   

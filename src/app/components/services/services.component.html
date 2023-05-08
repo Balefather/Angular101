@@ -1,0 +1,14 @@
+<div class="container">
+  <h2>Tidligere services</h2>
+  <ul class="services">
+    <li *ngFor="let service of services">
+      <a routerLink="/service-detail/{{service.serviceID}}">
+        <span class="badge">{{service.serviceID}}</span>Maskine: {{service.machineSerialNumber}} 
+      </a>
+<!--       <button type="button" class="delete" title="delete service" (click)="delete(service)">x</button> -->
+    </li> 
+  </ul>
+</div>
+
+
+

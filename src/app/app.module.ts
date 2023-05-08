@@ -24,6 +24,9 @@ import { MachinesComponent } from './components/machines/machines.component';
 import { JwtInterceptor } from './services/jwt-interceptor';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { SettingsComponent } from './components/settings/settings.component';
+import { ServiceCreateComponent } from './components/service-create/service-create.component';
+import { ServicesComponent } from './components/services/services.component';
+import { ServiceDetailComponent } from './components/service-detail/service-detail.component';
 
 
 @NgModule({
@@ -43,7 +46,10 @@ import { SettingsComponent } from './components/settings/settings.component';
     PartsDashboardComponent,
     MachinesComponent,
     UserProfileComponent,
-    SettingsComponent
+    SettingsComponent,
+    ServiceCreateComponent,
+    ServicesComponent,
+    ServiceDetailComponent
   ],
   imports: [
     BrowserModule, FormsModule, HttpClientModule, AppRoutingModule

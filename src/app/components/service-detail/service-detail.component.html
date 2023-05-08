@@ -1,0 +1,50 @@
+<div class="container">
+    <div *ngIf="service">
+      <h2>Service ID: {{service.serviceID}} Details</h2>
+      <div><span>id: </span>{{service.serviceID}}</div>
+        
+      <div class="inputs">
+        <label for="service-name">Service ID: </label>
+        <input id="service-name" [(ngModel)]="service.serviceID" placeholder="0">
+
+        <label for="service-name">Service Dato: </label>
+        <input id="service-name" [(ngModel)]="service.serviceDate" placeholder="name">
+        
+        <label for="service-name">Kunde: </label>
+        <input id="service-name" [(ngModel)]="service.customerName" placeholder="name">
+
+        <label for="service-name">Maskin Navn: </label>
+        <input id="service-name" [(ngModel)]="service.machineName" placeholder="name">
+
+        <label for="service-name">Serienummer: </label>
+        <input id="service-name" [(ngModel)]="service.machineSerialNumber" placeholder="name">
+
+        <label for="service-name">Reservedele: </label>
+<!--         <input id="service-name" [(ngModel)]="service.serviceID" placeholder="name">
+ -->
+        <label for="service-name">Billeder: </label>
+        <img *ngFor="let image in service.images" src="image.imagePath">
+
+        <label for="service-name">Transporttid: </label>
+        <input id="service-name" [(ngModel)]="service.transportTimeUsed" placeholder="name">
+
+        <label for="service-name">Transportafstand (km): </label>
+        <input id="service-name" [(ngModel)]="service.transportKmUsed" placeholder="name">
+
+        <label for="service-name">Arbejdstid: </label>
+        <input id="service-name" [(ngModel)]="service.workTimeUsed" placeholder="name">
+
+        <label for="service-name">Note: </label>
+        <input id="service-name" [(ngModel)]="service.note" placeholder="name">
+
+        <label for="service-name">Maskinstatus: </label>
+        <input id="service-name" [(ngModel)]="service.machineStatus" placeholder="name">
+
+      </div>
+    
+    </div>
+    <button type="button" (click)="save()">save</button>
+    <button type="button" (click)="goBack()">go back</button>
+  </div>
+  
+  

@@ -16,17 +16,13 @@ import { CustomerService } from 'src/app/services/models/customer/customer.servi
   styleUrls: ['./service-checklist.component.css']
 })
 export class ServiceChecklistComponent implements OnInit{
-  parts: Part[] = [];
+  constructor(private partService: PartService, private messageService: MessageService, private customerService: CustomerService){}
+
+  
+
   customers: Customer[] = [];
-  selectedParts: Part[] = [];
   selectedCustomer: Customer | null;
  
-
-  searchResultParts$!: Observable<Part[]>;
-  private searchTerms = new Subject<string>();
-  searchValue:string = '';
-
-  constructor(private partService: PartService, private messageService: MessageService, private customerService: CustomerService){}
 
   customerSelected(customer: Customer){
     if(this.selectedCustomer == customer){
@@ -37,56 +33,25 @@ export class ServiceChecklistComponent implements OnInit{
     }
   }
 
-  search(term: string): void {
-    this.searchTerms.next(term);
-  }
-
-/*   submitForm(form: NgForm){
-    console.log(this.formData);
-    form.reset();
-  } */
-
   ngOnInit(): void{
-    this.GetParts();
+
     this.GetCustomers();
-    this.initializeSearchResult();
   }
 
+  GetNextServiceFromCustomer(customer: Customer): Date{
+    // use map() to extract the timestamps from the objects
+    const timestamps = customer.machines.map(obj => Date.parse(obj.nextService.toString()));
+    
+    // use Math.min() to find the earliest timestamp
+    const earliestTimestamp = Math.min(...timestamps);
+    
+    // create a new Date object from the earliest timestamp
+    const earliestDate = new Date(earliestTimestamp);
 
-
-  addToSelection(part: Part): void{
-    this.selectedParts.push(part);
-    this.messageService.add(`Added ${part.partName} to selection`);
-    this.searchValue = '';
-    this.clear();
-  }
-
-  GetParts(): void {
-    this.partService.getParts().subscribe(parts => this.parts = parts);
+    return earliestDate;
   }
 
   GetCustomers(): void {
     this.customerService.getCustomers().subscribe(customers => this.customers = customers);
   }
-
-
-  initializeSearchResult(): void{
-    this.searchResultParts$ = this.searchTerms.pipe(
-      // wait 300ms after each keystroke before considering the term
-      debounceTime(300),
-
-      // ignore new term if same as previous term
-      distinctUntilChanged(),
-
-      // switch to new search observable each time the term changes
-      switchMap((term: string) => this.partService.searchParts(term)),
-    );
-  }
-
-  clear(): void{
-    this.searchResultParts$ = new Observable<Part[]>();
-    this.initializeSearchResult();
-
-  }
-
 }

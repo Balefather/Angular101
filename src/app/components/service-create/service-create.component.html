@@ -1,0 +1,52 @@
+<div id="service-checklist-container">
+    <p *ngIf="customers.length === 0">Loading... No customers found... Oh no....</p>
+    <div *ngFor="let customer of customers" >
+        <div *ngIf="selectedCustomer == customer || selectedCustomer == null">
+            <h1 class="header" (click)="customerSelected(customer)">Kunde: {{customer.customerName}}</h1>
+            <div *ngIf="selectedCustomer==customer" >
+              <div>
+                  <label for="transportTime">Transporttid i minutter: </label>
+                  <input type="number" id="transportTime" [(ngModel)]="service.transportTimeUsed" placeholder="0">
+
+                  <label for="transportDistance">Transport i kilometer: </label>
+                  <input type="number" id="transportDistance" [(ngModel)]="service.transportKmUsed" placeholder="0">
+
+                  <label for="workTime">Arbejdstid i minutter: </label>
+                  <input type="number" id="workTime" [(ngModel)]="service.workTimeUsed" placeholder="0">
+                  
+                  <label for="machineSerialNumber">Serienummer (maskine): </label>
+                  <input type="text" id="machineSerialNumber" [(ngModel)]="service.machineSerialNumber" placeholder="0">
+                                    
+                  <label for="note">Beskrivelse: </label>
+                  <textarea id="note" [(ngModel)]="service.note" placeholder="Skriv her..." ></textarea>
+                  <label for="machineStatus">Maskinstatus: </label>
+                  <textarea id="machineStatus" [(ngModel)]="service.machineStatus" placeholder="Skriv her..."></textarea>
+                  <div *ngFor="let servicePart of service.parts">
+                    <label for="partsUsed">Brugte dele: </label>
+                    <input type="textarea" id="partsUsed" [(ngModel)]="servicePart.partsUsed" placeholder="Skriv her...">
+  
+                  </div>
+              </div>
+<!--               <div *ngFor="let machine of selectedCustomer.machines">
+                <h2>Maskine: {{machine.machineName}}</h2><br>
+                <h2>Serienummer: {{machine.machineSerialNumber}}</h2>
+                <div class="forms-container">
+                  <app-part-editor *ngFor="let part of machine.parts" [part]="part"></app-part-editor>
+                </div>
+              </div> -->
+        
+            </div>
+        </div>
+      
+
+    </div>
+    <button (click)="createService()">Opret service</button>
+    
+    
+    
+<!--     <form #myForm="ngForm" (ngSubmit)="submitForm(myForm)">
+      
+    
+      <button type="submit" [disabled]="myForm.invalid">Submit</button>
+    </form> -->
+  </div>

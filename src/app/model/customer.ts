@@ -1,4 +1,5 @@
 import { Machine } from 'src/app/model/machine';
+import { CustomerMachine } from './customerMachine';
 
 export class Customer {
     constructor(
@@ -7,7 +8,6 @@ export class Customer {
       public customerAddress: string,
       public phoneNumber: string,
       public email: string,
-      public amountMachine: number,
-      public machines: Machine[]
+      public machines: CustomerMachine[]
     ) {  }
   }
