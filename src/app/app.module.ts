@@ -17,7 +17,7 @@ import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
 import { NavMenuComponent } from './components/nav-menu/nav-menu.component';
 import { ServiceChecklistComponent } from './components/service-checklist/service-checklist.component';
-import { PartEditorComponent } from './components/part-editor/part-editor.component';
+import { ServiceEditorComponent } from './components/service-editor/service-editor.component';
 import { MachineDetailComponent } from './components/machine-detail/machine-detail.component';
 import { PartsDashboardComponent } from './components/parts-dashboard/parts-dashboard.component';
 import { MachinesComponent } from './components/machines/machines.component';
@@ -41,7 +41,7 @@ import { ServiceDetailComponent } from './components/service-detail/service-deta
     SearchBarComponent,
     NavMenuComponent,
     ServiceChecklistComponent,
-    PartEditorComponent,
+    ServiceEditorComponent,
     MachineDetailComponent,
     PartsDashboardComponent,
     MachinesComponent,

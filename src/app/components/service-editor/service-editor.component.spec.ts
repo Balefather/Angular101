@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PartEditorComponent } from './part-editor.component';
+import { PartEditorComponent } from './service-editor.component';
 
 describe('PartEditorComponent', () => {
   let component: PartEditorComponent;

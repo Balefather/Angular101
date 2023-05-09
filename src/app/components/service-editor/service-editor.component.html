@@ -1,0 +1,34 @@
+<div class="form-container sleek-form">
+        <span>Maskine: {{machine.machineName}}</span>
+        <div class="amount-container">
+            <table>
+                <tr>
+                    <th>Transportafstand</th>
+                    <th>Transporttid</th>
+                    <th>Arbejdstid</th>
+                </tr>
+                <tr>
+                    <td><input type="number" [(ngModel)]="service.transportKmUsed" /></td>
+                    <td><input type="number" [(ngModel)]="service.transportTimeUsed" /></td>
+                    <td><input type="number" [(ngModel)]="service.workTimeUsed" /></td>
+                </tr>
+            </table>
+        </div>
+        <span><p>Beskrivelse</p></span>
+        <textarea id="message" name="message" [(ngModel)]="service.note" required></textarea>
+        
+        <span><p>Maskinstatus</p></span>
+        <textarea id="message" name="message" [(ngModel)]="service.machineStatus" required></textarea>
+
+        
+        <span><p>Upload</p></span>
+        <input type="file" (change)="onFileSelect($event)" />
+        <img height="300px" width="300px" margin="20px 0 20px 0" *ngIf="thumbnailSrc" [src]="thumbnailSrc" alt="Thumbnail">
+        <div class="horizontal-container">
+            <span>Godkendt</span>
+            <input type="checkbox" />
+        </div>
+        
+</div>
+
+  

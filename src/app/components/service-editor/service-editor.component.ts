@@ -2,15 +2,22 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Part } from 'src/app/model/part';
 import { Customer } from 'src/app/model/customer';
 import { Machine } from 'src/app/model/machine';
+import { Service } from 'src/app/model/service';
+import { CustomerMachine } from 'src/app/model/customerMachine';
 import { HttpClient, HttpHeaders} from '@angular/common/http';
 
 @Component({
-  selector: 'app-part-editor',
-  templateUrl: './part-editor.component.html',
-  styleUrls: ['./part-editor.component.css']
+  selector: 'app-service-editor',
+  templateUrl: './service-editor.component.html',
+  styleUrls: ['./service-editor.component.css']
 })
-export class PartEditorComponent {
-  @Input() part: Part;
+export class ServiceEditorComponent {
+  @Input() machine: CustomerMachine;
+  @Input() customer: Customer;
+  service: Service = new Service(0, new Date(), "", "", "", [], [], 0, 0, 0, "", "");
+
+
+
   adjustment: number = 0;
   totalChanged: number = 0;
   message: string = '';
@@ -19,12 +26,12 @@ export class PartEditorComponent {
 
   constructor(private http: HttpClient){}
 
-  calculateTotal(): void{
+/*   calculateTotal(): void{
     this.totalChanged = this.part.amountPartMachine + this.adjustment;
   }
-
+ */
   ngOnInit(): void{
-    this.calculateTotal();
+/*     this.calculateTotal(); */
   }
 
   onFileSelect(event: Event) {

@@ -6,9 +6,9 @@
     <div *ngIf="selectedCustomer==customer" >
       <div *ngFor="let machine of selectedCustomer.machines">
         <h2>Maskine: {{machine.machineName}} {{machine.machineSerialNumber}} - Næste Service: {{machine.nextService | date: 'dd/MM/yyyy' }}</h2>
-        <button>Opret service</button>
+<!--         <button routerLink="/service-checklist/{{service.serviceID}}">Opret service</button> -->
         <div class="forms-container">
-          <!-- <app-part-editor *ngFor="let part of machine.parts" [part]="part"></app-part-editor> -->
+          <app-service-editor [machine]="machine" [customer]="customer"></app-service-editor>
         </div>
       </div>
     </div>
