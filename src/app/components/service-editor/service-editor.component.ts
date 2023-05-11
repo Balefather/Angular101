@@ -1,10 +1,12 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Part } from 'src/app/model/part';
 import { Customer } from 'src/app/model/customer';
 import { Machine } from 'src/app/model/machine';
 import { Service } from 'src/app/model/service';
+import { ServiceService } from 'src/app/services/models/service/service.service';
+import { ServiceDto, Part } from 'src/app/model/serviceDto';
 import { CustomerMachine } from 'src/app/model/customerMachine';
 import { HttpClient, HttpHeaders} from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-service-editor',
@@ -14,24 +16,33 @@ import { HttpClient, HttpHeaders} from '@angular/common/http';
 export class ServiceEditorComponent {
   @Input() machine: CustomerMachine;
   @Input() customer: Customer;
-  service: Service = new Service(0, new Date(), "", "", "", [], [], 0, 0, 0, "", "");
+
+  service: ServiceDto = new ServiceDto(0, 0, 0, "", [], 0, 0, 0, "", "");
 
 
-
-  adjustment: number = 0;
-  totalChanged: number = 0;
   message: string = '';
   selectedFile: File;
   thumbnailSrc: string;
 
-  constructor(private http: HttpClient){}
+  constructor(private router: Router, private http: HttpClient, private serviceService: ServiceService){}
 
-/*   calculateTotal(): void{
-    this.totalChanged = this.part.amountPartMachine + this.adjustment;
-  }
- */
+
   ngOnInit(): void{
+    this.service.customerID = this.customer.customerID;
+    this.service.machineID = this.machine.machineID;
+    this.service.machineSerialNumber = this.machine.machineSerialNumber;
+    this.machine.parts.forEach(element => {
+      this.service.serviceParts.push(new Part(element.partID, element.amountPartMachine))
+    });
+
 /*     this.calculateTotal(); */
+  }
+
+  add(service: ServiceDto): void{
+    this.serviceService.addService(service).subscribe(newService => {
+      // Assuming you have a route named 'service-details' with a parameter 'id'
+      this.router.navigate(['service-detail', newService.serviceID]);
+    });
   }
 
   onFileSelect(event: Event) {
@@ -51,6 +62,21 @@ export class ServiceEditorComponent {
     const formData = new FormData();
     formData.append('file', this.selectedFile, this.selectedFile.name);
     this.http.post('https://www.shiggy.dk/api/Upload', formData).subscribe(
+      (response) => {
+        console.log(response);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
+
+  uploadFileService(serviceID: number) {
+    const formData = new FormData();
+    formData.append('file', this.selectedFile, this.selectedFile.name);
+    formData.append('serviceID', serviceID.toString()); // Append serviceID to the formData
+  
+    this.http.post('https://www.shiggy.dk/api/Upload/Service', formData).subscribe(
       (response) => {
         console.log(response);
       },

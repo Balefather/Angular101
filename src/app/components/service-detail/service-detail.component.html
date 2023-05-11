@@ -20,10 +20,10 @@
         <input id="service-name" [(ngModel)]="service.machineSerialNumber" placeholder="name">
 
         <label for="service-name">Reservedele: </label>
+        <p *ngFor="let part of service.parts">{{part.partsUsed}}x {{part.partName}}</p>
 <!--         <input id="service-name" [(ngModel)]="service.serviceID" placeholder="name">
  -->
-        <label for="service-name">Billeder: </label>
-        <img *ngFor="let image in service.images" src="image.imagePath">
+
 
         <label for="service-name">Transporttid: </label>
         <input id="service-name" [(ngModel)]="service.transportTimeUsed" placeholder="name">
@@ -39,6 +39,14 @@
 
         <label for="service-name">Maskinstatus: </label>
         <input id="service-name" [(ngModel)]="service.machineStatus" placeholder="name">
+
+        <label for="service-name">Billeder: </label>
+        <p *ngIf="images.length == 0 || images == null">No images found</p>
+        <img *ngFor="let image of service.images" src="{{image.imagePath}}">
+
+        <span><p>Upload</p></span>
+        <input type="file" (change)="onFileSelect($event)" />
+        <img height="300px" width="300px" margin="20px 0 20px 0" *ngIf="thumbnailSrc" [src]="thumbnailSrc" alt="Thumbnail">
 
       </div>
     

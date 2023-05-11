@@ -14,20 +14,26 @@
                 </tr>
             </table>
         </div>
-        <span><p>Beskrivelse</p></span>
+        <h2>Beskrivelse</h2>
         <textarea id="message" name="message" [(ngModel)]="service.note" required></textarea>
         
-        <span><p>Maskinstatus</p></span>
+        <h2>Maskinstatus</h2>
         <textarea id="message" name="message" [(ngModel)]="service.machineStatus" required></textarea>
 
+        <div *ngFor="let part of service.serviceParts">
+            <h2>ReservedelsID: {{part.partID}}</h2>
+            <p>Antal dele brugt:</p>
+            <input type="number" [(ngModel)]="part.partsUsed" />
+        </div>
         
         <span><p>Upload</p></span>
         <input type="file" (change)="onFileSelect($event)" />
         <img height="300px" width="300px" margin="20px 0 20px 0" *ngIf="thumbnailSrc" [src]="thumbnailSrc" alt="Thumbnail">
-        <div class="horizontal-container">
+<!--         <div class="horizontal-container">
             <span>Godkendt</span>
             <input type="checkbox" />
-        </div>
+        </div> -->
+        <button (click)="add(service)">Opret service</button>
         
 </div>
 

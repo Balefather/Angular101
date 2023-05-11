@@ -4,6 +4,8 @@ import { catchError, map, tap } from 'rxjs/operators';
 import { MessageService } from './../../message.service';
 import { Observable, of } from 'rxjs';
 import { ServiceInterface, Service } from '../../../model/service';
+import { ServiceDto } from 'src/app/model/serviceDto';
+import { Image } from 'src/app/model/image';
 
 @Injectable({
   providedIn: 'root'
@@ -15,10 +17,10 @@ export class ServiceService {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
 
-  addService(service: Service): Observable<Service>{
-    return this.http.post<Service>(this.servicesUrl, service, this.httpOptions).pipe(
-      tap((newService: Service) => this.log(`added service w/ id=${newService.serviceID}`)),
-      catchError(this.handleError<Service>('addService'))
+  addService(service: ServiceDto): Observable<ServiceDto>{
+    return this.http.post<ServiceDto>(`${this.servicesUrl}/CreateNewService`, service, this.httpOptions).pipe(
+      tap((newService: ServiceDto) => this.log(`added service w/ id=${newService.serviceID}`)),
+      catchError(this.handleError<ServiceDto>('addService'))
     )
   }
 
@@ -28,6 +30,14 @@ export class ServiceService {
     .pipe(
       tap(_ => this.log('fetched services')),
       catchError(this.handleError<Service[]>('getServices', [])))
+  }
+
+  getImages(id: number): Observable<Image[]>{
+    const url = `${this.servicesUrl}/ImagesByServiceID/${id}`;
+    return this.http.get<Image[]>(url).pipe(
+      tap(_ => this.log(`fetched service id=${id}`)),
+      catchError(this.handleError<Image[]>(`getService id=${id}`))
+    );
   }
   
   /** GET service by id. Will 404 if id not found */
