@@ -1,11 +1,15 @@
 <div class="container">
-  <h2>Nogle reservedele</h2>
+  <img src="https://www.nolek.com/wp-content/uploads/2015/11/Nolek-logo.png">
+  <h1>Nolek Tekniker Assistent</h1>
+  <h2>Kunder der snart skal have syn</h2>
   <div class="parts-menu" *ngIf="isLoggedIn$ | async">
-    <a *ngIf="parts == null">Loading...</a>
-    <a *ngFor="let part of parts"
-        routerLink="/part-detail/{{part.partID}}" 
-        (mouseenter)="onHover(part.partName)">
-        {{part.partName}}
+    <a *ngIf="customers == null">Loading...</a>
+    <a *ngFor="let customer of customers"
+        routerLink="/customer-detail/{{customer.customerID}}" 
+        (mouseenter)="onHover(customer.customerName)">
+        {{customer.customerName}}<p>
+          {{customer.machines[0].nextService | date: 'dd/MM/yyyy' }}
+        </p>
     </a>
   </div>
   <div *ngIf="!(isLoggedIn$ | async)">
@@ -13,29 +17,23 @@
   </div>
 </div>
 <div class="container">
-  <h2>Vores Produkter</h2>
+  <h2>Funktioner</h2>
   <div class="menu">
     <div class="menu-item">
-      <a routerLink="/dashboard">
-        <img src="dashboard-icon.svg" alt="Dashboard Icon">
-        <span>Dashboard</span>
-      </a>
-    </div>
-    <div class="menu-item">
       <a routerLink="/parts">
-        <img src="parts-icon.svg" alt="Reservedele Icon">
+        <img src="https://api.iconify.design/oi/aperture.svg" alt="Reservedele Icon">
         <span>Reservedele</span>
       </a>
     </div>
     <div class="menu-item">
       <a routerLink="/machines">
-        <img src="machines-icon.svg" alt="Maskiner Icon">
+        <img src="https://api.iconify.design/oi/wrench.svg" alt="Maskiner Icon">
         <span>Maskiner</span>
       </a>
     </div>
     <div class="menu-item">
       <a routerLink="/service-checklist">
-        <img src="service-icon.svg" alt="Registrer Service Icon">
+        <img src="https://api.iconify.design/oi/document.svg" alt="Registrer Service Icon">
         <span>Registrer Service</span>
       </a>
     </div>

@@ -1,4 +1,14 @@
-<div>
-    <input type="color" [(ngModel)]="selectedColor" (change)="updateColor()" />
+<div class="container">
+    <div>
+        <p>Temafarve</p>
+        <input type="color" [(ngModel)]="selectedColor" (change)="updateColor()" />
+    </div>
+    <br>
+    <div>
+        <p>Logging vindue:</p>
+        <input type="checkbox" [checked]="loggingEnabled" (change)="updateLogging()" />
+    </div>
+    <br>
+    <p>debug knap</p>
+    <button (click)="test()">test</button>
 </div>
-<button (click)="test()">test</button>

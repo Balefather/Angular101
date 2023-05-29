@@ -2,5 +2,6 @@
     "styles": {
         "navbar": "#7fffd4",
         "textcolor": "#1a1919"
-    }
+    },
+    "logging": "true"
 }

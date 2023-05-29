@@ -8,20 +8,20 @@
     <div class="nav-item">
         <a routerLink="/dashboard">Dashboard</a>
     </div>
-    <div *ngIf="roles.includes('Admin')" class="nav-item nav-item-parts">
+    <div *ngIf="roles.includes('Admin')||roles.includes('Superadministrator')" class="nav-item nav-item-parts cy-parts">
         <a routerLink="/parts">Reservedele</a>
     </div>
-    <div *ngIf="roles.includes('Admin')" class="nav-item nav-item-machines">
+    <div *ngIf="roles.includes('Admin')|| roles.includes('Superadministrator')" class="nav-item nav-item-machines cy-machines">
         <a routerLink="/machines">Maskiner</a>
     </div>
-    <div *ngIf="roles.includes('Light User')" class="nav-item nav-item-services">
+    <div *ngIf="roles.includes('Light User') || roles.includes('Admin') || roles.includes('Superadministrator')" class="nav-item nav-item-services cy-services">
         <a routerLink="/service-checklist">Registrer service</a>
     </div>
     <div *ngIf="roles.includes('Superadministrator')" class="nav-item nav-item-users">
         <a routerLink="/users">Brugere</a>
     </div>
     <div class="float-right">
-        <app-search-bar id="search-bar" *ngIf="roles.includes('Superadministrator') || roles.includes('Admin') || roles.includes('Light User')" ></app-search-bar>
+        <app-search-bar id="search-bar" class="cy-search-bar" *ngIf="roles.includes('Superadministrator') || roles.includes('Admin') || roles.includes('Light User')" ></app-search-bar>
         <div *ngIf="roles.includes('Admin')" class="nav-item nav-item-settings">
             <a routerLink="/settings">Settings icon</a>
         </div>

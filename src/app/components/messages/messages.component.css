@@ -1,10 +1,15 @@
 #messages-container {
-    border-right: 2px solid rgb(217, 231, 236);
-    height:100%;
-    padding: 3rem;
+
+    padding: 0 3rem 0 3rem;
     max-width: 200px;
 }
 
+:host{
+    height:100%;
+    background-color: rgb(227, 242, 255);
+    border-right: 2px solid rgb(217, 231, 236);
+    padding: 0;
+}
 .message{
     padding-bottom: 1rem;
 }

@@ -2,7 +2,7 @@ describe('Manage services', () => {
   it('creates a part', () => {
     cy.visit('https://localhost:4200/dashboard')
 
-    cy.get('.nav-item-parts').click()
+    cy.get('.cy-parts').click()
 
     cy.url().should('include', '/parts')
 

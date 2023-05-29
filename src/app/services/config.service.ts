@@ -33,7 +33,16 @@ const __dirname = path.dirname(__filename);
     }
   }
 
+  getLoggingEnabledStatus(): Observable<boolean> {
+    return this.http.get<any>('assets/appconfig.json').pipe(
+      map(settings => settings.logging as boolean)
+    );
+  }
+
   getConfig(): Observable<any> {
+
+
+
     return this.http.get(this.configFilePath).pipe(
       map((config) => {
         this.messageService.add('config loaded');
@@ -64,6 +73,17 @@ const __dirname = path.dirname(__filename);
     return this.getConfig().pipe(
       map((config) => {
         config['styles'][setting] = color;
+        return config;
+      }),
+      switchMap((config) => this.updateConfig(config))
+    );
+  }
+
+  updateLogging(loggingEnabled: boolean): Observable<any> {
+    this.messageService.add(`setting messages window to: ${loggingEnabled}`);
+    return this.getConfig().pipe(
+      map((config) => {
+        config['logging'] = loggingEnabled;
         return config;
       }),
       switchMap((config) => this.updateConfig(config))

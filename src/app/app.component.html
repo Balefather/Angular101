@@ -3,8 +3,8 @@
 
 </div>
 <div id="main">
-  <app-messages></app-messages>
-  <div *ngIf="isLoggedIn$ | async">
+  <app-messages *ngIf="loggingEnabled == true"></app-messages>
+  <div *ngIf="isLoggedIn$ | async" class="routercontainer">
     <router-outlet ></router-outlet>
   </div>
 

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Part } from '../../model/part';
+import { Customer } from 'src/app/model/customer';
+import { CustomerService } from 'src/app/services/models/customer/customer.service';
 import { PartService } from '../../services/models/part/part.service';
 import { MessageService } from '../../services/message.service';
 import { AuthService } from 'src/app/services/auth/auth.service';
@@ -11,13 +13,13 @@ import { Observable } from 'rxjs';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-  parts: Part[] | null = null;
+  customers: Customer[] | null = null;
   isLoggedIn$: Observable<boolean>;
   
-  constructor(private partService: PartService, private messageService: MessageService, private authService: AuthService) { }
+  constructor(private partService: PartService, private messageService: MessageService, private authService: AuthService, private cService: CustomerService) { }
 
   ngOnInit(): void {
-    this.getParts();
+    this.getCustomers();
     this.isLoggedIn$ = this.authService.isLoggedIn$;
         this.isLoggedIn$.subscribe(loggedIn => {
           //do stuff dependant on login status
@@ -28,8 +30,8 @@ export class DashboardComponent implements OnInit {
     this.messageService.add(`${partName}: "Don't touch me!"`);
   }
 
-  getParts(): void {
-    this.partService.getParts()
-      .subscribe(parts => this.parts = parts.slice(1, 5));
+  getCustomers(): void {
+    this.cService.getCustomers()
+      .subscribe(customers => this.customers = customers.slice(1, 5));
   }
 }

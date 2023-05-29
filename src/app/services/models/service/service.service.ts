@@ -11,7 +11,7 @@ import { Image } from 'src/app/model/image';
   providedIn: 'root'
 })
 export class ServiceService {
-  private servicesUrl = 'https://www.shiggy.dk/api/Services';  // URL to web api
+  private servicesUrl = 'https://localhost:7047/api/Services';  // URL to web api
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })

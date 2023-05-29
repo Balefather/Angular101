@@ -53,10 +53,6 @@ label {
     animation-duration: 0.4s;
     animation-iteration-count: 1;
   }
-  
-  
-  
-  
 
   li {
     list-style-type: none;
@@ -90,4 +86,6 @@ label {
   ul.search-result {
     margin-top: 0;
     padding-left: 0;
+    z-index: 10000;
+    position: relative;
   }

@@ -34,7 +34,6 @@ export class ServiceChecklistComponent implements OnInit{
   }
 
   ngOnInit(): void{
-
     this.GetCustomers();
   }
 
@@ -52,6 +51,15 @@ export class ServiceChecklistComponent implements OnInit{
   }
 
   GetCustomers(): void {
-    this.customerService.getCustomers().subscribe(customers => this.customers = customers);
+    this.customerService.getCustomers().subscribe(customers => {
+      customers.forEach(customer => {
+        customer.machines.sort((a, b) => {
+          const dateA = new Date(a.nextService).getTime();
+          const dateB = new Date(b.nextService).getTime();
+          return dateA - dateB;
+        });
+      });
+      this.customers = customers;
+    });
   }
 }

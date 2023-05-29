@@ -88,6 +88,13 @@ export class ServiceDetailComponent {
     }
   }
 
+  delete(): void {
+    if (this.service) {
+      this.serviceService.deleteService(this.service.serviceID)
+        .subscribe(() => this.goBack());
+    }
+  }
+
   loadImages(): void{
     const id = Number(this.route.snapshot.paramMap.get('id'));
     this.serviceService.getImages(id)
