@@ -11,6 +11,7 @@ import { SettingsComponent } from './components/settings/settings.component';
 import { MachineDetailComponent } from './components/machine-detail/machine-detail.component';
 import { ServiceCreateComponent } from './components/service-create/service-create.component';
 import { ServiceChecklistComponent } from './components/service-checklist/service-checklist.component';
+import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
 
 const routes: Routes = [
   { path: 'machine-detail/:id', component: MachineDetailComponent },
@@ -24,7 +25,8 @@ const routes: Routes = [
   { path: 'users', component: UsersComponent },
   { path: 'service-checklist', component: ServiceChecklistComponent},
   { path: 'service-create', component: ServiceCreateComponent},
-  { path: 'settings', component: SettingsComponent }
+  { path: 'settings', component: SettingsComponent },
+  { path: 'reactive-form', component: ReactiveFormComponent }
 ];
 
 @NgModule({

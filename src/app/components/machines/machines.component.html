@@ -6,7 +6,7 @@
 </div>-->
 <div class="container">
   <h2>Maskiner</h2>
-  <ul class="machines">
+  <ul class="machines cy-machines">
     <li *ngFor="let machine of machines">
       <a routerLink="/machine-detail/{{machine.machineID}}">
         <span class="badge">{{machine.machineID}}</span> {{machine.machineName}} 
@@ -17,10 +17,10 @@
   <h2>Tilføj ny maskine</h2>
   <div>
     <label for="new-machine">Maskin navn: </label>
-    <input id="new-machine" #machineName />
+    <input id="new-machine" #machineName class="cy-newmachine"/>
     <!-- (click) passes input value to add() and then clears the input -->
-    <button type="button" class="add-button" (click)="add(machineName.value, 'hej', 99); machineName.value=''">
-      Add part
+    <button type="button" class="add-button cy-add" (click)="add(machineName.value, 'hej', 99); machineName.value=''">
+      Tilføj
     </button>
   </div>
 </div>

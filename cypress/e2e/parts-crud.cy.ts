@@ -3,69 +3,50 @@ describe('CRUD Parts', () => {
     cy.login("admin", "test", "Admin");
   })
   it('creates a part', () => {
-/*     cy.visit('https://localhost:4200/dashboard')
-    cy.get('.button').click()
-    cy.get('#username-input').type("admin")
-    cy.get('#password-input').type("test")
-    cy.get('.login-button').click()
-    cy.wait(100) */
+
     cy.visit('https://localhost:4200/dashboard')
 
-    cy.get('.nav-item-parts').click()
+    cy.get('.cy-parts').click()
 
     cy.url().should('include', '/parts')
 
-    cy.get('#new-part').type('Test Part')
+    cy.get('.cy-part-name-input').type('Test Part')
 
-    cy.get('#new-part').should('have.value', 'Test Part')
+    cy.get('.cy-part-name-input').should('have.value', 'Test Part')
 
-    cy.contains('Add part').click()
+    cy.get('.cy-add').click()
 
-    cy.get('.parts').children().contains('Test Part')
+    cy.get('.cy-parts').children().contains('Test Part')
   })
   
   it('updates a part', () => {
     cy.visit('https://localhost:4200/dashboard')
 
-    cy.get('.nav-item-parts').click()
+    cy.get('.cy-parts').click()
 
     cy.url().should('include', '/parts')
 
-   /*  cy.get('#new-part').type('Test Part')
+    cy.get('.cy-parts').children().contains('Test Part').click()
 
-    cy.get('#new-part').should('have.value', 'Test Part')
+    cy.get('.cy-part-name').clear()
 
-    cy.contains('Add part').click()
-
-    cy.get('.parts').children().contains('Test Part') */
-
-    cy.get('.parts').children().contains('Test Part').click()
-
-    cy.get('#part-name').clear()
-
-    cy.get('#part-name').type('Updated value')
+    cy.get('.cy-part-name').type('Updated value')
 
     cy.contains('save').click()
 
-    cy.get('.parts').children().contains('Updated value')
+    cy.get('.cy-parts').children().contains('Updated value')
   })
 
   it('deletes a part', () => {
     cy.visit('https://localhost:4200/dashboard')
 
-    cy.get('.nav-item-parts').click()
+    cy.get('.cy-parts').click()
 
     cy.url().should('include', '/parts')
 
-/*     cy.get('#new-part').type('Test Part')
+    cy.get('.cy-parts').children().contains('Updated value').siblings().contains('x').click()
 
-    cy.get('#new-part').should('have.value', 'Test Part')
-
-    cy.contains('Add part').click() */
-
-    cy.get('.parts').children().contains('Updated value').siblings().contains('x').click()
-
-    cy.get('.parts').children().contains('Updated value').should('not.exist')
+    cy.get('.cy-parts').children().contains('Updated value').should('not.exist')
   })
 
 })

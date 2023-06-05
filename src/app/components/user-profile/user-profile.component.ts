@@ -23,12 +23,14 @@ name: string | null = null || "N/A";
 
   togglePopup() {
     if (this.showPopup) {
-      this.messageService.add("Closed login panel")
+      this.messageService.add("Closed login panel");
       this.showPopup = false;
     } else {
-      this.messageService.add("Opened login panel")
+      this.messageService.add("Opened login panel");
       this.showPopup = true;
-      this.usernameInput.nativeElement.focus();
+      if (this.usernameInput) {
+        this.usernameInput.nativeElement.focus();
+      }
     }
   }
   

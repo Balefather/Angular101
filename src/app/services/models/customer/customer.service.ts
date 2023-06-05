@@ -11,7 +11,7 @@ import { Part } from '../../../model/part';
   providedIn: 'root'
 })
 export class CustomerService {
-  private customersUrl = 'https://www.shiggy.dk/api/Customers/SortedByServiceDate';  // URL to web api
+  private customersUrl = 'https://www.shiggy.dk/api/Customers';  // URL to web api
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -26,7 +26,7 @@ export class CustomerService {
 
   /** GET customers from the database through API */
   getCustomers(): Observable<Customer[]>{
-    return this.http.get<Customer[]>(this.customersUrl)
+    return this.http.get<Customer[]>(`${this.customersUrl}/SortedByServiceDate`)
     .pipe(
       tap(_ => this.log(`fetched customers, length = ${_.length}`)),
       catchError(this.handleError<Customer[]>('getCustomers', [])))

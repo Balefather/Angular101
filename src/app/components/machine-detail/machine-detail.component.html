@@ -5,7 +5,7 @@
       <div><span>id: </span>{{machine.machineID}}</div>
       <div>
         <label for="part-name">Part name: </label>
-        <input id="part-name" [(ngModel)]="machine.machineName" placeholder="name">
+        <input id="part-name" class="cy-nameinput" [(ngModel)]="machine.machineName" placeholder="name">
       </div>
       <h3 *ngIf="!machine.parts" style="color:red">No parts found on this machine!!</h3>
       <app-parts-dashboard  [parts]="machine.parts"></app-parts-dashboard>

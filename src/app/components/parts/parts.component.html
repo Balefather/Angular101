@@ -1,6 +1,6 @@
 <div class="container">
   <h2>Reservedele</h2>
-  <ul class="parts">
+  <ul class="parts cy-parts">
     <li *ngFor="let part of parts">
       <a routerLink="/part-detail/{{part.partID}}">
         <span class="badge">{{part.partID}}</span> {{part.partName}} 
@@ -12,11 +12,11 @@
   <h2>Tilføj ny reservedel</h2>
   <div>
     <label for="new-part">Navn: </label>
-    <input id="new-part" #partName />
+    <input id="new-part" class="cy-part-name-input" #partName />
   
     <!-- (click) passes input value to add() and then clears the input -->
-    <button type="button" class="add-button" (click)="add(partName.value, 2, 99); partName.value=''">
-      Add part
+    <button type="button" class="add-button cy-add" (click)="add(partName.value, 2, 99); partName.value=''">
+      Tilføj
     </button>
   </div>
   

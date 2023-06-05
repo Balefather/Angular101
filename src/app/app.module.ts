@@ -27,6 +27,8 @@ import { SettingsComponent } from './components/settings/settings.component';
 import { ServiceCreateComponent } from './components/service-create/service-create.component';
 import { ServicesComponent } from './components/services/services.component';
 import { ServiceDetailComponent } from './components/service-detail/service-detail.component';
+import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -49,10 +51,11 @@ import { ServiceDetailComponent } from './components/service-detail/service-deta
     SettingsComponent,
     ServiceCreateComponent,
     ServicesComponent,
-    ServiceDetailComponent
+    ServiceDetailComponent,
+    ReactiveFormComponent
   ],
   imports: [
-    BrowserModule, FormsModule, HttpClientModule, AppRoutingModule
+    BrowserModule, FormsModule, HttpClientModule, AppRoutingModule, ReactiveFormsModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }
